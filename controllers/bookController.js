@@ -4,7 +4,6 @@ const User = require("../models/user");
 const Book = require("../models/book");
 const mongoose = require("mongoose");
 const enumerated = require("../middlewares/enumStructures");
-const utils = require("../middlewares/utils");
 
 function createBook(req, res) {
   let Book = new Book();
@@ -67,9 +66,9 @@ function getAllBooks(req, res) {
 }
 
 function getBook(req, res) {
-  let BookId = req.params.BookId;
+  let bookId = req.params.bookId;
 
-  Book.findById(BookId)
+  Book.findById(bookId)
     .populate("author")
     .exec((err, book) => {
       if (err)
@@ -144,7 +143,7 @@ function updateBook(req, res) {
   let updated = req.body;
 
   let bookId = req.params.bookId;
-  Book.findByIdAndUpdate(BookId, updated, (err, oldBook) => {
+  Book.findByIdAndUpdate(bookId, updated, (err, oldBook) => {
     if (err)
       return res
         .status(500)
@@ -180,7 +179,7 @@ module.exports = {
   getBook,
   updateBook,
   deleteBook,
-  getBooks,
+  getAllBooks,
   getBookByTag,
   getBookByTitle,
   getBookByCategory
