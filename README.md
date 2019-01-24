@@ -9,11 +9,11 @@ En esa carpeta existen, principalmente, archivos PDF y EPUB organizados en carpe
 El problema es que la única información que se puede ver del libro antes de la descarga es el nombre del archivo. La página generada por nginx no permite búsqueda recursiva ni filtros.
 
 ## Solución propuesta
-Se quiere desarrollar una webapp que muestre todos los libros disponibles, con su miniatura, título, categoría y enlaces de descarga. 
+Se quiere desarrollar una webapp en __Node.js__ que muestre todos los libros disponibles, con su miniatura, título, categoría y enlaces de descarga. 
 El usuario debería tener la opción de realizar búsquedas dentro de todo el contenido de la biblioteca.
 Dentro de un set de de libros, los resultados deberían poder ser filtrables por categoría y etiquetas.
 
-## Definición de Libro
+### Definición de Libro
     - name: String
     - category: String
     - description: String
