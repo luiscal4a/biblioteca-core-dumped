@@ -6,6 +6,7 @@ const enumerator = require("../middlewares/enumStructures");
 
 const BookSchema = new Schema({
   title: { type: String, required: true },
+  author: { type: String },
   category: { type: String, required: true },
   synopsis: { type: String },
   publishDate: { type: Number },
