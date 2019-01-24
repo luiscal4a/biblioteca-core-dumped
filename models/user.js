@@ -26,7 +26,13 @@ const UserSchema = new Schema({
   },
   creation: { type: Date, default: Date.now() },
   donations: {
-    money: { type: Array },
+    money: [
+      {
+        _id: false,
+        type: Schema.Types.ObjectId, 
+        ref: enumerator.modelsName.donation
+      }
+    ],
     books: [
       {
         _id: false,

@@ -8,7 +8,8 @@ const role = [
 
 const modelsName = {
     book: 'Book',
-    user: 'User'
+    user: 'User',
+    donation: 'Donation'
 };
 
 const bookStatus = [

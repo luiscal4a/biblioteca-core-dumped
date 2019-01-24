@@ -20,3 +20,18 @@ Dentro de un set de de libros, los resultados deberían poder ser filtrables por
     - year: Number
     - tags: [String]
     - available_files: [String]
+
+### Definición de Usuario
+	- userName: String
+	- firstName: String
+	- lastName: String
+	- role: String
+	- password: String
+	- creation: Date
+	- donations:
+		- money: [Donations ObjectID]
+		- books: [Book ObjectID]
+
+### Definición de Donaciones
+	- quantity: Number
+	- donationDate: Date
