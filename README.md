@@ -14,12 +14,20 @@ El usuario debería tener la opción de realizar búsquedas dentro de todo el co
 Dentro de un set de de libros, los resultados deberían poder ser filtrables por categoría y etiquetas.
 
 ### Definición de Libro
-    - name: String
+    - title: String
+    - author: String
     - category: String
-    - description: String
-    - year: Number
+    - synopsis: String
+    - publishDate: Date
     - tags: [String]
-    - available_files: [String]
+    - language: String
+    - publisher: String
+    - pageNumber: Number
+    - size: Number
+    - index: String
+    - status: String
+    - uploader: User ObjectId
+    - links: [String]
 
 ### Definición de Usuario
 	- userName: String
