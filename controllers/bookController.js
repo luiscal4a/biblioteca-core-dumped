@@ -6,24 +6,25 @@ const mongoose = require("mongoose");
 const enumerated = require("../middlewares/enumStructures");
 
 function createBook(req, res) {
-  let Book = new Book();
+  let book = new Book();
 
-  Book.title = req.body.title;
-  Book.author = req.body.author;
-  Book.category = req.body.category;
-  Book.synopsis = req.body.description;
-  Book.publishDate = req.body.publishDate;
-  Book.tags = req.body.tags;
-  Book.language = req.body.language;
-  Book.publisher = req.body.publisher;
-  Book.pageNumber = req.body.pageNumber;
-  Book.size = req.body.size;
-  Book.index = req.body.index;
-  Book.status = req.body.status;
-  Book.uploader = req.body.uploader;
-  Book.links = req.body.links;
+  book.title = req.body.title;
+  book.author = req.body.author;
+  book.category = req.body.category;
+  book.synopsis = req.body.description;
+  book.publishDate = req.body.publishDate;
+  book.tags = req.body.tags;
+  book.language = req.body.language;
+  book.publisher = req.body.publisher;
+  book.pageNumber = req.body.pageNumber;
+  book.size = req.body.size;
+  book.index = req.body.index;
+  book.status = req.body.status;
+  book.uploader = req.body.uploader;
+  book.links = req.body.links;
 
-  Book.save((err, BookStored) => {
+  console.log(`New book: \n ${book}`);
+  book.save((err, BookStored) => {
     if (err)
       return res
         .status(500)
