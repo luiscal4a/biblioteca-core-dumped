@@ -27,7 +27,6 @@ Dentro de un set de de libros, los resultados deberían poder ser filtrables por
     - status: String
     - uploader: User ObjectId
     - uploads: [
-        - link: String
         - format: String
         - size: Number ]
 
