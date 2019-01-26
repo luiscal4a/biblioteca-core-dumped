@@ -17,11 +17,9 @@ function createBook(req, res) {
   book.language = req.body.language;
   book.publisher = req.body.publisher;
   book.pageNumber = req.body.pageNumber;
-  book.size = req.body.size;
   book.index = req.body.index;
-  book.status = req.body.status;
   book.uploader = req.body.uploader;
-  book.links = req.body.links;
+  book.status = 'pending';
 
   console.log(`New book: \n ${book}`);
   book.save((err, BookStored) => {
@@ -53,7 +51,6 @@ function createBook(req, res) {
 
 function getAllBooks(req, res) {
   Book.find()
-    .populate("author")
     .exec((err, books) => {
       if (err)
         return res
@@ -62,7 +59,7 @@ function getAllBooks(req, res) {
       if (!books)
         return res.status(404).send({ message: "No existen Books" });
 
-      res.status(200).send({ Books });
+      res.status(200).send({ books });
     });
 }
 
@@ -85,8 +82,7 @@ function getBook(req, res) {
 function getBookByTag(req, res) {
   let bookTag = req.params.tag;
 
-  Book.find({ week: bookTag })
-    .populate("author")
+  Book.find({ tags : bookTag })
     .exec((err, books) => {
       if (err)
         return res
@@ -105,7 +101,6 @@ function getBookByTitle(req, res) {
   let bookTitle = req.params.title;
 
   Book.find({ title: bookTitle })
-    .populate("author")
     .exec((err, books) => {
       if (err)
         return res
@@ -125,7 +120,6 @@ function getBookByCategory(req, res) {
   let cat = req.params.category;
 
   Book.find({ category: cat })
-    .populate("author")
     .exec((err, books) => {
       if (err)
         return res

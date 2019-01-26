@@ -6,6 +6,11 @@ const role = [
     'collaborator'
 ];
 
+const formats = [
+    'pdf',
+    'epub'
+];
+
 const modelsName = {
     book: 'Book',
     user: 'User',

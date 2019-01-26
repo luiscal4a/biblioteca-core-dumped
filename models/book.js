@@ -9,16 +9,22 @@ const BookSchema = new Schema({
   author: { type: String },
   category: { type: String, required: true },
   synopsis: { type: String },
-  publishDate: { type: Number },
+  publishDate: { type: Date },
   tags: { type: Array },
   language: { type: String },
   publisher: { type: String },
   pageNumber: { type: Number },
-  size: { type: Number },
   index: { type: String },
   status: {type: String, enum: enumerator.bookStatus, required: true},
   uploader: { type: Schema.Types.ObjectId, ref: enumerator.modelsName.user },
-  links: { type: Array, required: true}
+  uploads: [
+    {
+      _id: false,
+      link: { type: String },
+      format: { type: String, enum: enumerator.formats },
+      size: { type: Number }
+    }
+  ]
 });
 
 module.exports = mongoose.model(
