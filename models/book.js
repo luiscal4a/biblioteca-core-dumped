@@ -20,7 +20,6 @@ const BookSchema = new Schema({
   uploads: [
     {
       _id: false,
-      link: { type: String },
       format: { type: String, enum: enumerator.formats },
       size: { type: Number }
     }
