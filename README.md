@@ -23,11 +23,13 @@ Dentro de un set de de libros, los resultados deberían poder ser filtrables por
     - language: String
     - publisher: String
     - pageNumber: Number
-    - size: Number
     - index: String
     - status: String
     - uploader: User ObjectId
-    - links: [String]
+    - uploads: [
+        - link: String
+        - format: String
+        - size: Number ]
 
 ### Definición de Usuario
 	- userName: String
