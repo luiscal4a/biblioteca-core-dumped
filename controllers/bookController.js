@@ -8,7 +8,7 @@ const epubParser = require('epub-metadata-parser');
 const PDFExtract  = require('pdf.js-extract').PDFExtract;
 
 function parseEpub(req, res) {
-  epubParser.parse('./controllers/alice.epub', '../Documents' , book => {
+  epubParser.parse('./input/tester.epub', '../Documents' , book => {
       res.status(200).send({ message: book });
   });
 }
@@ -17,7 +17,7 @@ function parsePDF(req, res) {
   const pdfExtract = new PDFExtract();
   const options = {}; /* see below */
 
-  pdfExtract.extract('./controllers/alice2.pdf', options, (err, data) => {
+  pdfExtract.extract('./input/alice2.pdf', options, (err, data) => {
       if (err){
         res.status(404).send({ message: err });
         console.log(err);
