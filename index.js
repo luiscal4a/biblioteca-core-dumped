@@ -15,7 +15,6 @@ mongoose.connect(config.MONGODB_INSTANCE, {useNewUrlParser: true}).then(
     () => {
         server = http.createServer(app)
         server.listen(port)
-        server.on('error', onError)
         server.on('listening', listening)
     },
     err => {

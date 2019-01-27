@@ -4,6 +4,28 @@ const User = require("../models/user");
 const Book = require("../models/book");
 const mongoose = require("mongoose");
 const enumerated = require("../middlewares/enumStructures");
+const epubParser = require('epub-metadata-parser');
+const PDFExtract  = require('pdf.js-extract').PDFExtract;
+
+function parseEpub(req, res) {
+  epubParser.parse('./controllers/alice.epub', '../Documents' , book => {
+      res.status(200).send({ message: book });
+  });
+}
+
+function parsePDF(req, res) {
+  const pdfExtract = new PDFExtract();
+  const options = {}; /* see below */
+
+  pdfExtract.extract('./controllers/alice2.pdf', options, (err, data) => {
+      if (err){
+        res.status(404).send({ message: err });
+        console.log(err);
+      }
+      console.log(data);
+      res.status(200).send({ message: data });
+  });
+}
 
 function createBook(req, res) {
   let book = new Book();
@@ -177,5 +199,7 @@ module.exports = {
   getAllBooks,
   getBookByTag,
   getBookByTitle,
-  getBookByCategory
+  getBookByCategory,
+  parseEpub,
+  parsePDF
 };
